@@ -1,0 +1,223 @@
+/* Pricing.css */
+
+.pricing-section { padding: 100px 0; }
+
+.pricing-header {
+  margin-bottom: 64px;
+}
+
+.pricing-header .section-subtitle {
+  margin: 16px 0 32px;
+}
+
+/* ── Toggle ── */
+.pricing-toggle {
+  display: inline-flex;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  gap: 4px;
+}
+
+.pricing-toggle__btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.pricing-toggle__btn--active {
+  background: var(--red);
+  color: white;
+}
+
+.pricing-toggle__save {
+  font-size: 10px;
+  font-weight: 700;
+  background: rgba(255,255,255,0.2);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Grid ── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+/* ── Card ── */
+.pricing-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Featured (highlighted) card style */
+.pricing-card--featured {
+  border-color: var(--red);
+  background: var(--bg-surface);
+  /* Slightly taller due to extra top padding for badge */
+  padding-top: 48px;
+}
+
+.pricing-card__badge {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--red);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  white-space: nowrap;
+}
+
+.pricing-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pricing-card__icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.pricing-card__name {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.pricing-card__desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Price */
+.pricing-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.pricing-card__currency {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.pricing-card__amount {
+  font-family: var(--font-display);
+  font-size: 52px;
+  letter-spacing: 2px;
+  color: white;
+  line-height: 1;
+}
+
+.pricing-card__period {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.pricing-card__saving {
+  font-size: 12px;
+  font-weight: 600;
+  color: #51cf66;
+  margin-top: -12px;
+}
+
+/* Feature list */
+.pricing-card__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  padding: 0;
+}
+
+.pricing-card__feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.pricing-card__feature--off {
+  opacity: 0.35;
+  text-decoration: line-through;
+  text-decoration-color: var(--text-muted);
+}
+
+.pricing-card__check {
+  font-size: 12px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Green check for included */
+.pricing-card__feature:not(.pricing-card__feature--off) .pricing-card__check {
+  background: rgba(81,207,102,0.15);
+  color: #51cf66;
+}
+
+/* Gray X for excluded */
+.pricing-card__feature--off .pricing-card__check {
+  background: var(--bg-muted);
+  color: var(--text-muted);
+}
+
+.pricing-card__cta {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Trust note */
+.pricing-note {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 32px;
+  line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .pricing-grid { grid-template-columns: 1fr; max-width: 440px; }
+}

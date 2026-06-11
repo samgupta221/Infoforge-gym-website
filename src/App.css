@@ -1,0 +1,162 @@
+/* App.css — Global styles & design tokens for IronForge Gym */
+
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --red: #e63946;          /* Brand accent — power/energy */
+  --red-dark: #c1121f;     /* Darker red for hover states */
+  --red-glow: rgba(230, 57, 70, 0.2); /* Subtle glow for accents */
+  --bg-primary: #0a0a0a;   /* Near-black page background */
+  --bg-surface: #111111;   /* Slightly lighter surface */
+  --bg-card: #161616;      /* Card backgrounds */
+  --bg-muted: #1e1e1e;     /* Muted/hover backgrounds */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-muted: #555555;
+  --border: rgba(255, 255, 255, 0.06);
+  --font-display: 'Bebas Neue', sans-serif; /* Impact headlines */
+  --font-body: 'Inter', sans-serif;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --max-width: 1200px;
+}
+
+/* ─── Reset & Base ───────────────────────────────────────────── */
+.app {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+/* ─── Shared Section Styles ─────────────────────────────────── */
+.section {
+  padding: 100px 24px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Eyebrow label above section headings */
+.section-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+
+/* Main section headline */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 0.95;
+  letter-spacing: 2px;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+/* Italic red accent words inside headlines */
+.section-title em {
+  font-style: italic;
+  color: var(--red);
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* ─── Button System ──────────────────────────────────────────── */
+
+/* Primary filled button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--red);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background: var(--red-dark);
+  transform: translateY(-2px);
+}
+
+/* Ghost/outline button */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: white;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 13px 31px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-ghost:hover {
+  border-color: var(--red);
+  color: var(--red);
+  background: var(--red-glow);
+}
+
+/* ─── Utility ────────────────────────────────────────────────── */
+
+/* Red decorative divider line */
+.divider {
+  width: 48px;
+  height: 3px;
+  background: var(--red);
+  margin-bottom: 32px;
+}
+
+/* Responsive wrapper for full-width sections */
+.section-wrapper {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ─── Animations ─────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+/* ─── Responsive Base ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .section { padding: 64px 20px; }
+  .section-title { font-size: 40px; }
+}

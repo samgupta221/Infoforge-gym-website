@@ -1,0 +1,225 @@
+/* Hero.css */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 120px 48px 80px;
+}
+
+/* ── Background Layers ── */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Subtle grid lines — industrial/technical feel */
+.hero__bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Dark vignette for depth */
+.hero__bg-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, rgba(10,10,10,0.9) 100%);
+}
+
+/* Animated red atmospheric orb */
+.hero__bg-orb {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(230,57,70,0.15) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: orbPulse 4s ease-in-out infinite;
+}
+
+@keyframes orbPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50%       { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+/* ── Content ── */
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.hero__content--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Headline ── */
+.hero__headline {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-size: clamp(72px, 14vw, 160px);
+  line-height: 0.9;
+  letter-spacing: 4px;
+  color: white;
+  margin: 16px 0 28px;
+}
+
+.hero__headline em {
+  font-style: italic;
+  color: var(--red);
+  /* Outlined text effect for the accent word */
+  -webkit-text-stroke: 2px var(--red);
+  color: transparent;
+}
+
+/* Staggered word fade-in */
+.hero__word {
+  display: block;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.hero__content--visible .hero__word { opacity: 1; transform: translateX(0); }
+.hero__content--visible .hero__word--1 { transition: opacity 0.6s 0.2s, transform 0.6s 0.2s; }
+.hero__content--visible .hero__word--2 { transition: opacity 0.6s 0.35s, transform 0.6s 0.35s; }
+.hero__content--visible .hero__word--3 { transition: opacity 0.6s 0.5s, transform 0.6s 0.5s; }
+.hero__content--visible .hero__word--4 { transition: opacity 0.6s 0.65s, transform 0.6s 0.65s; }
+
+/* ── Tagline ── */
+.hero__tagline {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 40px;
+}
+
+/* ── Action buttons ── */
+.hero__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+
+.hero__cta-primary {
+  font-size: 15px;
+  padding: 16px 36px;
+}
+
+/* ── Badges row ── */
+.hero__badges {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.hero__badge {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero__badge strong {
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+}
+
+.hero__badge span {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Vertical separator between badges */
+.hero__badge-sep {
+  width: 1px;
+  height: 40px;
+  background: var(--border);
+}
+
+/* ── Scroll hint ── */
+.hero__scroll-hint {
+  position: absolute;
+  bottom: 100px;
+  right: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transform: rotate(90deg);
+  transform-origin: right center;
+  z-index: 1;
+}
+
+.hero__scroll-line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, var(--text-muted), transparent);
+}
+
+/* ── Ticker ── */
+.hero__ticker {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  background: rgba(230, 57, 70, 0.08);
+  padding: 12px 0;
+  z-index: 1;
+}
+
+.hero__ticker-track {
+  display: flex;
+  white-space: nowrap;
+  animation: tickerScroll 30s linear infinite;
+}
+
+.hero__ticker-items {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--red);
+  padding-right: 60px;
+}
+
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 20px 80px;
+    min-height: 100svh;
+  }
+  .hero__scroll-hint { display: none; }
+  .hero__badges { flex-wrap: wrap; }
+  .hero__tagline { font-size: 16px; }
+}

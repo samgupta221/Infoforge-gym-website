@@ -1,0 +1,81 @@
+/* Stats.css */
+
+.stats-wrapper {
+  padding: 0;
+}
+
+.stats {
+  padding: 60px 24px;
+}
+
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Each stat separated by grid gap (which renders as line) */
+.stat-card {
+  background: var(--bg-surface);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.stat-card:hover {
+  background: var(--bg-muted);
+}
+
+/* Red corner accent */
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--red);
+  transition: height 0.4s ease;
+}
+
+.stat-card:hover::before {
+  height: 100%;
+}
+
+.stat-card__number {
+  font-family: var(--font-display);
+  font-size: 60px;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.stat-card__suffix {
+  color: var(--red);
+  font-size: 40px;
+}
+
+.stat-card__label {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.stat-card__desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+  .stats__grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-card__number { font-size: 44px; }
+}

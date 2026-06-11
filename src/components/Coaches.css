@@ -1,0 +1,161 @@
+/* Coaches.css */
+
+.coaches-header {
+  margin-bottom: 64px;
+  max-width: 600px;
+}
+
+.coaches-header .section-subtitle {
+  margin-top: 16px;
+}
+
+.coaches-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* ── Coach Card ── */
+.coach-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.coach-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* Avatar */
+.coach-card__avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 2px;
+  flex-shrink: 0;
+}
+
+.coach-card__name {
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+}
+
+.coach-card__role {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Stats mini row */
+.coach-card__stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  width: 100%;
+  justify-content: center;
+}
+
+.coach-card__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.coach-card__stat strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+}
+
+.coach-card__stat span {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.coach-card__stat-sep {
+  width: 1px;
+  height: 28px;
+  background: var(--border);
+}
+
+/* Specialty tags */
+.coach-card__specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.coach-card__specialty {
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: var(--bg-muted);
+  border-radius: var(--radius-sm);
+  padding: 3px 8px;
+}
+
+/* Cert badges */
+.coach-card__certs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.coach-card__cert {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+/* Book button */
+.coach-card__book {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-top: auto;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.coach-card__book:hover {
+  opacity: 0.7;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .coaches-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .coaches-grid { grid-template-columns: 1fr; }
+}
